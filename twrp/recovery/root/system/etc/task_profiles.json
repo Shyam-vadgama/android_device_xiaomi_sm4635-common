@@ -692,6 +692,32 @@
           }
         }
       ]
+    },
+    {
+      "Name": "MemoryProtectedProcess",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "memory",
+            "Path": "protected-app"
+          }
+        }
+      ]
+    },
+    {
+      "Name": "MemoryFreezeProcess",
+      "Actions": [
+        {
+          "Name": "JoinCgroup",
+          "Params":
+          {
+            "Controller": "memory",
+            "Path": "freeze-app"
+          }
+        }
+      ]
     }
   ],
 
