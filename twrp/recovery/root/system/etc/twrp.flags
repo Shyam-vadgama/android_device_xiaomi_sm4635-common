@@ -1,7 +1,19 @@
 # mount point   fstype  device                                          device2             flags
-# Logical partitions
-/system_ext     ext4    system_ext                                                          flags=display=System_EXT
-/vendor_dlkm    ext4    vendor_dlkm                                                         flags=display=Vendor_DLKM
+# Dynamic Partition
+/system                erofs   /dev/block/mapper/system                                           flags=display="system";logical;slotselect;flashimg=1;wipeingui=1
+/system                ext4    /dev/block/mapper/system                                           flags=display="system";logical;slotselect;flashimg=1;wipeingui=1
+/system_ext            erofs   /dev/block/mapper/system_ext                                       flags=display="system_ext";logical;slotselect;flashimg=1;wipeingui=1
+/system_ext            ext4    /dev/block/mapper/system_ext                                       flags=display="system_ext";logical;slotselect;flashimg=1;wipeingui=1
+/product               erofs   /dev/block/mapper/product                                          flags=display="product";logical;slotselect;flashimg=1;wipeingui=1
+/product               ext4    /dev/block/mapper/product                                          flags=display="product";logical;slotselect;flashimg=1;wipeingui=1
+/vendor                erofs   /dev/block/mapper/vendor                                           flags=display="vendor";logical;slotselect;flashimg=1;wipeingui=1
+/vendor                ext4    /dev/block/mapper/vendor                                           flags=display="vendor";logical;slotselect;flashimg=1;wipeingui=1
+/vendor_dlkm           erofs   /dev/block/mapper/vendor_dlkm                                      flags=display="vendor_dlkm";logical;slotselect;flashimg=1;wipeingui=1
+/vendor_dlkm           ext4    /dev/block/mapper/vendor_dlkm                                      flags=display="vendor_dlkm";logical;slotselect;flashimg=1;wipeingui=1
+/odm                   erofs   /dev/block/mapper/odm                                              flags=display="odm";logical;slotselect;flashimg=1;wipeingui=1
+/odm                   ext4    /dev/block/mapper/odm                                              flags=display="odm";logical;slotselect;flashimg=1;wipeingui=1
+/mi_ext                erofs   /dev/block/mapper/mi_ext                                           flags=display="mi_ext";logical;slotselect;flashimg=1;wipeingui=1
+/mi_ext                ext4    /dev/block/mapper/mi_ext                                           flags=display="mi_ext";logical;slotselect;flashimg=1;wipeingui=1
 
 # Userdata/Metadata partitions
 /metadata       ext4    /dev/block/by-name/metadata                                         flags=display=Metadata
