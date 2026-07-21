@@ -96,6 +96,7 @@ PRODUCT_PACKAGES += fastbootd
 PRODUCT_PACKAGES += android.hardware.fastboot@1.1-impl-mock
 
 # qcom decryption
+TW_INCLUDE_CRYPTO := true
 PRODUCT_PACKAGES += \
     qcom_decrypt \
     qcom_decrypt_fbe
