@@ -24,6 +24,7 @@
 # components.
 
 # SDK
+BOARD_API_LEVEL := 31
 BOARD_SYSTEMSDK_VERSIONS := 31
 
 # Architecture
