@@ -176,6 +176,16 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 TW_LOAD_VENDOR_MODULES := "qti_battery_charger.ko crypto-qti.ko ufshcd-crypto-qti.ko qseecom_proxy.ko smcinvoke_dlkm.ko ft8057m_spi.ko"
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 
+# Blank and immediately unblank the panel during gui_init() so the
+# DRM panel notifier fires DRM_PANEL_EVENT_{UN}BLANK. The FocalTech
+# FTS touch driver (ft8057m_spi.ko) only enables its touch IRQ when
+# it observes a panel blank->unblank transition, but at recovery boot
+# the panel is already lit before the module is loaded, so no such
+# event fires and touch stays dead on the decrypt screen until the
+# power key is pressed once. Replaying the blank->unblank cycle at
+# GUI init replicates the power-key wake and enables touch on boot.
+TW_SCREEN_BLANK_ON_BOOT := true
+
 # TWRP Debug Flags
 #TWRP_EVENT_LOGGING := true
 TARGET_USES_LOGD := true
