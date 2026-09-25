@@ -186,6 +186,16 @@ TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 # GUI init replicates the power-key wake and enables touch on boot.
 TW_SCREEN_BLANK_ON_BOOT := true
 
+# Flashlight: the pitti/warm camera flash has no LED-class device in
+# recovery (qcom,camera-flash@0 is unbound; no /sys/class/leds flash
+# node). The flash LED is gated directly by TLMM GPIO 83 (enm-gpio in
+# the camera-flash DT node, <0x4c 0x53 0>). OrangeFox only knows how
+# to write to a brightness file, so /sbin/torchd (started from
+# foxstart.sh) creates /tmp/torch/brightness (a regular file bridged
+# to GPIO 83) and this wiki-documented var points the flashlight
+# action at it.
+OF_FL_PATH1 := /tmp/torch
+
 # TWRP Debug Flags
 #TWRP_EVENT_LOGGING := true
 TARGET_USES_LOGD := true
