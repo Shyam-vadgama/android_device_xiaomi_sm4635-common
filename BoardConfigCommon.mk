@@ -142,6 +142,12 @@ TW_MAX_BRIGHTNESS := 4095
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TW_THEME := portrait_hdpi
+# The panel is a 720x1640 HD+ LCD. OrangeFox defaults OF_SCREEN_H to
+# 1920, which misplaces the on-screen navbar and the slide-to-unlock
+# text on a 1640px-tall screen; use the real panel height. (There is
+# no width build var - the GUI reads the framebuffer width at runtime
+# and scales the theme horizontally by itself.)
+OF_SCREEN_H := 1640
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone35/temp"
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_STATUS_ICONS_ALIGN := center
